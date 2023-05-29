@@ -53,23 +53,23 @@ permissions:
   contents: read
   id-token: write
   
-  
 jobs:
-
-  
   azure-login:
     runs-on: ubuntu-latest
     steps:
-      - name: Install azure-cli
-        # You may pin to the exact commit or the version.
-        # uses: pietrobolcato/install-azure-cli-action@9a10af1be5e3eb7931f48c0290364a131e7ecd70
-        uses: pietrobolcato/install-azure-cli-action@v1.0.1
       - name: Az CLI login
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show
+            az group list
 
 
   terraform:
