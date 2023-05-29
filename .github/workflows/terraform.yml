@@ -58,7 +58,7 @@ jobs:
   azure-login:
     runs-on: ubuntu-latest
     steps:
-     - name: Install azure-cli
+      - name: Install azure-cli
         # You may pin to the exact commit or the version.
         # uses: pietrobolcato/install-azure-cli-action@9a10af1be5e3eb7931f48c0290364a131e7ecd70
         uses: pietrobolcato/install-azure-cli-action@v1.0.1
